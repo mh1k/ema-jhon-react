@@ -1,0 +1,24 @@
+.cart-header{
+    text-align: center;
+}
+.order-total{
+    font-size: 20px;
+    font-weight: 700;
+    color: #b12704;
+}
+.order-button{
+    text-align: center;
+}
+.order-button button{
+    width: 300px;
+    height: 30px;
+    background-color: #f0c14b;
+    border: 1px solid rgb(80, 73, 73);
+    border-radius: 5px;
+    margin-top: 10px;
+}
+.order-button button a{
+    text-decoration: none;
+    color: black;
+    
+}
