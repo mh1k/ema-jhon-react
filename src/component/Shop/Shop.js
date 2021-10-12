@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import { addToDb, getStoredCart } from '../../utilities/fakedb';
 import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
@@ -13,12 +14,12 @@ const Shop = () => {
     // console.log(cart);
 
     useEffect(() => {
-        fetch('./products.JSON')
+        fetch('./products.json')
             .then(res => res.json())
-            .then(data =>{
+            .then(data => {
                 setProducts(data)
                 setDisplayProducts(data)
-            } )
+            })
     }, []);
 
     useEffect(() => {
@@ -41,7 +42,15 @@ const Shop = () => {
     }, [products]);
 
     const addToCardHandler = (product) => {
-        const newCart = [...cart, product];
+        const newCart = [...cart];
+        const exiting = cart.find(c => c.key === product.key)
+        if (exiting) {
+            product.quantity = product.quantity + 1
+        }
+        else {
+            product.quantity = 1
+            newCart.push(product)
+        }
         setCart(newCart);
 
         //save to local storage
@@ -68,8 +77,13 @@ const Shop = () => {
                     }
                 </div>
                 <div className="cart-container">
-                    <Cart key={cart.key} cart={cart}></Cart>
+                    <Cart key={cart.key} cart={cart}>
+                        <NavLink to="/review">
+                            <button className="order-buttonR">Review your order</button>
+                        </NavLink>
+                    </Cart>
                 </div>
+
             </div>
         </div>
 

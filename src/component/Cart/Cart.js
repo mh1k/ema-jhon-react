@@ -1,4 +1,5 @@
 import React from 'react';
+
 import './Cart.css'
 
 const Cart = (props) => {
@@ -15,12 +16,12 @@ const Cart = (props) => {
     //THIRD SYSTEM
     let totalQuantity = 0;
     let itemsTotal = 0;
-    for(const product of cart){
+    for (const product of cart) {
         if (!product.quantity) {
             product.quantity = 1;
         }
-        itemsTotal = itemsTotal + product.price*product.quantity;
-        totalQuantity = totalQuantity+product.quantity;
+        itemsTotal = itemsTotal + product.price * product.quantity;
+        totalQuantity = totalQuantity + product.quantity;
     }
     /* #################################################################################### */
 
@@ -63,7 +64,7 @@ const Cart = (props) => {
                 </tbody>
             </table>
             <div className="order-button">
-                <button><a href="/orderButton">Review your order</a></button>
+                {props.children}
             </div>
         </div>
     );

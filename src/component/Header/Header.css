@@ -24,6 +24,11 @@
     
 
 }
+.displayName{
+    color: white;
+    font-size: 20px;
+    margin-left: 50px;
+}
 .navbar a:hover{
     background-color: rgb(255, 255, 255);
     color: black;
